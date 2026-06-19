@@ -107,14 +107,13 @@ export default function App() {
             <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: {studioContact.rednote}</p>
             <div data-lightbox-ignore className="grid grid-cols-4 gap-2 pt-2">
               {[
-                ["WeChat", "/images/contact/wechat-qr.jpg"],
-                ["WhatsApp", "/images/contact/whatsapp-qr.jpg"],
-                ["Instagram", "/images/contact/instagram-qr.jpg"],
-                ["RedNote", "/images/contact/rednote-qr.jpg"],
+                ["WeChat", "/images/contact/wechat-qr.png"],
+                ["WhatsApp", "/images/contact/whatsapp-qr.png"],
+                ["Instagram", "/images/contact/instagram-qr.png"],
+                ["RedNote", "/images/contact/rednote-qr.png"],
               ].map(([label, src]) => (
-                <div key={label} className="bg-[#fbf7ef] p-1 text-center">
-                  <img src={src} alt={`${label} QR code`} className="aspect-square w-full cursor-default object-contain" />
-                  <span className="mt-1 block text-[10px] leading-none">{label}</span>
+                <div key={label} className="bg-[#f1e7d8] p-1">
+                  <img src={src} alt={`${label} QR code`} className="w-full cursor-default object-contain mix-blend-multiply" />
                 </div>
               ))}
             </div>

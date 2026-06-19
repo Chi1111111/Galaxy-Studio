@@ -6,10 +6,10 @@ interface AboutSectionProps {
 
 export default function AboutSection({ lang }: AboutSectionProps) {
   const contactQrs = [
-    { label: "WeChat", src: "/images/contact/wechat-qr.jpg" },
-    { label: "WhatsApp", src: "/images/contact/whatsapp-qr.jpg" },
-    { label: "Instagram", src: "/images/contact/instagram-qr.jpg" },
-    { label: "RedNote", src: "/images/contact/rednote-qr.jpg" },
+    { label: "WeChat", src: "/images/contact/wechat-qr.png" },
+    { label: "WhatsApp", src: "/images/contact/whatsapp-qr.png" },
+    { label: "Instagram", src: "/images/contact/instagram-qr.png" },
+    { label: "RedNote", src: "/images/contact/rednote-qr.png" },
   ];
   const studioImages = [
     "/images/studio/home-1.jpg",
@@ -92,9 +92,8 @@ export default function AboutSection({ lang }: AboutSectionProps) {
         </div>
         <div data-lightbox-ignore className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
           {contactQrs.map((qr) => (
-            <div key={qr.label} className="bg-[#fbf7ef] p-2 text-center">
-              <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto aspect-square w-full max-w-24 cursor-default object-contain" />
-              <p className="mt-2 text-xs font-semibold text-[#3f352e]">{qr.label}</p>
+            <div key={qr.label} className="flex items-center justify-center bg-[#f4eadc] p-2">
+              <img src={qr.src} alt={`${qr.label} QR code`} className="w-full max-w-28 cursor-default object-contain mix-blend-multiply" />
             </div>
           ))}
         </div>
