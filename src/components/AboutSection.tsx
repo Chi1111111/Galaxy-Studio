@@ -78,7 +78,7 @@ export default function AboutSection({ lang }: AboutSectionProps) {
         </div>
       </div>
 
-      <div className="surface-card mt-16 grid gap-10 bg-[#f4eadc] p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
+      <div className="surface-card mt-16 grid gap-10 bg-[#f4eadc] p-8 lg:grid-cols-[0.95fr_1.05fr] lg:p-10">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a36b4f]">Contact Us</p>
           <h2 className="mt-3 font-serif text-3xl font-bold">{lang === "zh" ? "联系方式" : "Contact"}</h2>
@@ -89,29 +89,29 @@ export default function AboutSection({ lang }: AboutSectionProps) {
           </p>
           <div className="mt-7 grid gap-3 text-sm text-[#5b4a3f]">
             {contactMethods.map((method) => (
-              <div key={method.label} className="grid grid-cols-[24px_88px_1fr] items-center gap-2 border-b border-[#2f241d]/10 pb-3 last:border-b-0">
+              <div key={method.label} className="grid grid-cols-[24px_84px_minmax(0,1fr)] items-center gap-2 border-b border-[#2f241d]/10 pb-3 last:border-b-0">
                 <method.icon className="h-4 w-4 text-[#a36b4f]" />
                 <span className="font-semibold text-[#3f352e]">{method.label}</span>
-                <span>{method.value}</span>
+                <span className="break-words">{method.value}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div data-lightbox-ignore>
-          <div className="flex items-end justify-between gap-4 border-b border-[#2f241d]/10 pb-4">
+          <div className="border-b border-[#2f241d]/10 pb-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a36b4f]">Scan to Connect</p>
               <h3 className="mt-2 font-serif text-2xl font-bold">{lang === "zh" ? "扫码咨询" : "QR Codes"}</h3>
             </div>
-            <p className="max-w-44 text-right text-xs leading-5 text-[#7b6c60]">
+            <p className="mt-2 text-sm leading-6 text-[#7b6c60]">
               {lang === "zh" ? "选择常用平台，扫码即可联系。" : "Choose your preferred platform."}
             </p>
           </div>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {contactQrs.map((qr) => (
-              <div key={qr.label} className="border border-[#2f241d]/10 bg-[#efe3d2] p-3 text-center">
-                <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto w-full max-w-28 cursor-default object-contain mix-blend-multiply" />
+              <div key={qr.label} className="border border-[#2f241d]/10 bg-white p-3 shadow-sm">
+                <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto w-full max-w-32 cursor-default object-contain" />
               </div>
             ))}
           </div>

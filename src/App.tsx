@@ -83,8 +83,8 @@ export default function App() {
       </main>
 
       <footer className="border-t border-[#2f241d]/10 bg-[#f1e7d8] py-12">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-2 lg:grid-cols-12 lg:px-8">
-          <div className="lg:col-span-4">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_1.1fr_1fr] lg:px-8">
+          <div>
             <div data-lightbox-ignore className="flex items-center gap-3">
               <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-12 w-28 object-contain object-left mix-blend-multiply" />
               <h3 className="font-serif text-2xl font-bold">Galaxy Art Studio</h3>
@@ -95,33 +95,35 @@ export default function App() {
                 : "Auckland art classes and creative experiences for children, adults, families, and groups."}
             </p>
           </div>
-          <div className="space-y-3 text-sm text-[#5b4a3f] lg:col-span-3">
-            <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "到访信息" : "Visit"}</h4>
-            <p className="flex gap-2"><MapPin className="h-4 w-4" />{studioContact.address}</p>
-            <p className="flex gap-2"><Calendar className="h-4 w-4" />{studioContact.hours} · By appointment only</p>
-            <p className="flex gap-2"><Phone className="h-4 w-4" />{studioContact.phone}</p>
-          </div>
-          <div className="space-y-3 text-sm text-[#5b4a3f] lg:col-span-2">
-            <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "联系方式" : "Contact"}</h4>
-            <p className="flex gap-2"><Mail className="h-4 w-4" />{studioContact.email}</p>
-            <p className="flex gap-2"><MessageCircle className="h-4 w-4" />WeChat: {studioContact.wechat}</p>
-            <p className="flex gap-2"><Instagram className="h-4 w-4" />{studioContact.instagram}</p>
-            <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: {studioContact.rednote}</p>
-          </div>
-          <div data-lightbox-ignore className="lg:col-span-3">
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "扫码联系" : "Scan"}</h4>
-              <span className="text-xs text-[#7b6c60]">{lang === "zh" ? "任选平台" : "Any platform"}</span>
+          <div className="grid gap-6 text-sm text-[#5b4a3f] sm:grid-cols-2 lg:grid-cols-1">
+            <div className="space-y-3">
+              <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "到访信息" : "Visit"}</h4>
+              <p className="flex gap-2"><MapPin className="h-4 w-4 flex-none" />{studioContact.address}</p>
+              <p className="flex gap-2"><Calendar className="h-4 w-4 flex-none" />{studioContact.hours} · By appointment only</p>
+              <p className="flex gap-2"><Phone className="h-4 w-4 flex-none" />{studioContact.phone}</p>
             </div>
-            <div className="grid grid-cols-4 gap-2 sm:max-w-md lg:grid-cols-2 xl:grid-cols-4">
+            <div className="space-y-3">
+              <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "联系方式" : "Contact"}</h4>
+              <p className="flex gap-2"><Mail className="h-4 w-4 flex-none" /><span className="break-all">{studioContact.email}</span></p>
+              <p className="flex gap-2"><MessageCircle className="h-4 w-4 flex-none" />WeChat: {studioContact.wechat}</p>
+              <p className="flex gap-2"><Instagram className="h-4 w-4 flex-none" />{studioContact.instagram}</p>
+              <p className="flex gap-2"><BookOpen className="h-4 w-4 flex-none" />Rednote: {studioContact.rednote}</p>
+            </div>
+          </div>
+          <div data-lightbox-ignore>
+            <div className="mb-4">
+              <h4 className="font-serif text-lg font-bold text-[#2b211b]">{lang === "zh" ? "扫码联系" : "Scan"}</h4>
+              <p className="mt-1 text-xs leading-5 text-[#7b6c60]">{lang === "zh" ? "任选一个平台扫码联系。" : "Scan any preferred platform."}</p>
+            </div>
+            <div className="grid max-w-md grid-cols-4 gap-2">
               {[
                 ["WeChat", "/images/contact/wechat-qr.png"],
                 ["WhatsApp", "/images/contact/whatsapp-qr.png"],
                 ["Instagram", "/images/contact/instagram-qr.png"],
                 ["RedNote", "/images/contact/rednote-qr.png"],
               ].map(([label, src]) => (
-                <div key={label} className="border border-[#2f241d]/10 bg-[#eadcc8] p-1.5">
-                  <img src={src} alt={`${label} QR code`} className="w-full cursor-default object-contain mix-blend-multiply" />
+                <div key={label} className="border border-[#2f241d]/10 bg-white p-1.5 shadow-sm">
+                  <img src={src} alt={`${label} QR code`} className="w-full cursor-default object-contain" />
                 </div>
               ))}
             </div>
