@@ -110,7 +110,7 @@ export default function AboutSection({ lang }: AboutSectionProps) {
           </div>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {contactQrs.map((qr) => (
-              <div key={qr.label} className="border border-[#d6c4ad] bg-[#fbf7ef] p-3 shadow-sm">
+              <div key={qr.label} className="bg-[#f1e7d8] p-2">
                 <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto w-full max-w-32 cursor-default object-contain" />
               </div>
             ))}
