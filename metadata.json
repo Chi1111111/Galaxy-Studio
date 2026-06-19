@@ -1,0 +1,6 @@
+{
+  "name": "Galaxy Art Studio",
+  "description": "A warm booking website for Galaxy Art Studio in Rosedale, Auckland, featuring children's art classes and adult creative experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
