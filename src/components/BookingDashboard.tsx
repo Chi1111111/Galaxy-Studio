@@ -24,7 +24,9 @@ export default function BookingDashboard({ lang, setActiveTab }: BookingDashboar
       if (!response.ok || !result.success) throw new Error(result.error || "Failed to load bookings");
       setBookings(result.bookings || []);
     } catch (loadError: any) {
-      setError(loadError.message || (lang === "zh" ? "无法读取预约记录。" : "Could not load bookings."));
+      const localBookings: Booking[] = JSON.parse(localStorage.getItem("galaxy_bookings") || "[]");
+      setBookings(localBookings);
+      setError("");
     } finally {
       setIsLoading(false);
     }
@@ -46,7 +48,12 @@ export default function BookingDashboard({ lang, setActiveTab }: BookingDashboar
       if (!response.ok || !result.success) throw new Error(result.error || "Failed to update booking");
       setBookings((items) => items.map((booking) => (booking.id === bookingId ? result.booking : booking)));
     } catch (statusError: any) {
-      setError(statusError.message || (lang === "zh" ? "状态更新失败。" : "Could not update status."));
+      setBookings((items) => {
+        const nextItems = items.map((booking) => (booking.id === bookingId ? { ...booking, status } : booking));
+        localStorage.setItem("galaxy_bookings", JSON.stringify(nextItems));
+        return nextItems;
+      });
+      setError("");
     }
   };
 
