@@ -14,7 +14,7 @@ export const workshopsData: Workshop[] = [
     duration: "2 hrs",
     difficulty: "Beginner",
     category: "painting",
-    imageUrl: "/images/hero/adult-work.png",
+    imageUrl: "/images/covers/custom-artwork.png",
     highlightsEn: [
       "Canvas sizes: 30x30cm / 30x40cm / 40x40cm",
       "Beginner friendly with teacher guidance",
@@ -41,7 +41,7 @@ export const workshopsData: Workshop[] = [
     duration: "2 hrs",
     difficulty: "All Levels",
     category: "painting",
-    imageUrl: "/images/works/adult/1.png",
+    imageUrl: "/images/covers/dried-flower-texture.png",
     highlightsEn: [
       "Dried flowers and texture materials included",
       "Warm decorative style for home display",
@@ -95,7 +95,7 @@ export const workshopsData: Workshop[] = [
     duration: "2 hrs",
     difficulty: "Beginner",
     category: "scent",
-    imageUrl: "/images/works/adult/2.png",
+    imageUrl: "/images/covers/candle-cup.png",
     highlightsEn: [
       "Fragrance, dried flowers, and decorative materials included",
       "Suitable as a handmade gift",
@@ -122,7 +122,7 @@ export const workshopsData: Workshop[] = [
     duration: "2 hrs",
     difficulty: "Easy for Kids",
     category: "scent",
-    imageUrl: "/images/hero/adult-course.png",
+    imageUrl: "/images/covers/aroma-tablet.png",
     highlightsEn: [
       "Includes two handmade aroma pieces",
       "Dried flowers and scents included",
@@ -149,7 +149,7 @@ export const workshopsData: Workshop[] = [
     duration: "1 hr+",
     difficulty: "Easy for Kids",
     category: "crafts",
-    imageUrl: "/images/hero/kids-work.png",
+    imageUrl: "/images/covers/perler-beads.png",
     highlightsEn: [
       "Make keychains, fridge magnets, and charms",
       "Good for children, friends, and casual craft time",

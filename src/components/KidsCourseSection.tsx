@@ -76,15 +76,15 @@ export default function KidsCourseSection({ lang, setActiveTab }: KidsCourseSect
         </div>
         <div className="grid gap-5 lg:grid-cols-5">
           {kidsLevels.map((level) => (
-            <article key={level.level} className="surface-card border border-[#2f241d]/10 bg-[#f4eadc] p-6">
+            <article key={level.level} className="surface-card flex min-h-[390px] flex-col border border-[#2f241d]/10 bg-[#f4eadc] p-6">
               <p className="font-mono text-sm font-bold text-[#a36b4f]">{level.level}</p>
-              <h3 className="mt-2 font-serif text-xl font-bold">{lang === "zh" ? level.titleZh : level.titleEn}</h3>
+              <h3 className="mt-2 min-h-14 font-serif text-xl font-bold">{lang === "zh" ? level.titleZh : level.titleEn}</h3>
               <p className="mt-2 text-sm font-bold text-[#5b4a3f]">{lang === "zh" ? level.ageZh : level.ageEn}</p>
-              <p className="mt-4 text-sm leading-7 text-[#665448]">{lang === "zh" ? level.descriptionZh : level.descriptionEn}</p>
-              <p className="mt-4 border-t border-[#2f241d]/10 pt-4 text-xs leading-6 text-[#5b4a3f]">
+              <p className="mt-4 flex-1 text-sm leading-7 text-[#665448]">{lang === "zh" ? level.descriptionZh : level.descriptionEn}</p>
+              <p className="mt-4 min-h-20 border-t border-[#2f241d]/10 pt-4 text-xs leading-6 text-[#5b4a3f]">
                 {lang === "zh" ? level.focusZh : level.focusEn}
               </p>
-              <p className="mt-4 font-serif text-lg font-bold">{level.price}</p>
+              <p className="mt-auto pt-4 font-serif text-lg font-bold">{level.price}</p>
             </article>
           ))}
         </div>

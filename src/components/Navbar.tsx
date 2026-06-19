@@ -29,10 +29,15 @@ export default function Navbar({ activeTab, setActiveTab, lang, setLang }: Navba
   return (
     <nav className="sticky top-0 z-50 border-b border-black/10 bg-[#f8f3ea]/95 backdrop-blur-xl">
       <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between px-5 lg:px-8">
-        <button className="transition-opacity hover:opacity-75 text-left" onClick={() => go("home")}>
-          <span className="block font-serif text-xl font-bold leading-none text-[#191715]">Galaxy Art Studio</span>
-          <span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.28em] text-[#5d5047]">
-            星河艺术空间 · Rosedale
+        <button data-lightbox-ignore className="flex items-center gap-3 text-left transition-opacity hover:opacity-75" onClick={() => go("home")}>
+          <span className="flex h-12 w-[132px] items-center overflow-hidden">
+            <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-full w-full object-contain object-left" />
+          </span>
+          <span className="hidden sm:block">
+            <span className="block font-serif text-lg font-bold leading-none text-[#191715]">Galaxy Art Studio</span>
+            <span className="mt-1 block text-[10px] font-bold uppercase tracking-[0.22em] text-[#5d5047]">
+              星河艺术空间 · Rosedale
+            </span>
           </span>
         </button>
 

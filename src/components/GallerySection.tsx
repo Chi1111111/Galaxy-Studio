@@ -41,12 +41,18 @@ const kidsLevels = [
     titleEn: "Independent Expression",
     ageZh: "10岁以上",
     ageEn: "Age 10+",
-    images: [],
+    images: [
+      "/images/works/kids/L5/1.png",
+      "/images/works/kids/L5/2.png",
+      "/images/works/kids/L5/3.png",
+      "/images/works/kids/L5/4.png",
+      "/images/works/kids/L5/5.png",
+      "/images/works/kids/L5/6.png",
+    ],
   },
 ];
 
 const adultImages = ["/images/works/adult/1.png", "/images/works/adult/2.png"];
-const studioImages = ["/images/studio/1.png", "/images/studio/2.png", "/images/studio/4.png", "/images/studio/5.png", "/images/studio/6.png", "/images/studio/9.png"];
 
 export default function GallerySection({ lang }: GallerySectionProps) {
   return (
@@ -56,8 +62,8 @@ export default function GallerySection({ lang }: GallerySectionProps) {
         <h1 className="mt-4 font-serif text-4xl font-bold sm:text-5xl">{lang === "zh" ? "作品展示" : "Gallery"}</h1>
         <p className="mx-auto mt-5 max-w-2xl leading-8 text-[#665448]">
           {lang === "zh"
-            ? "儿童作品按课程级别展示，方便家长了解不同阶段的学习成果；成人体验作品与工作室环境分开展示。"
-            : "Children's work is grouped by course level, with adult workshop pieces and studio photos shown separately."}
+            ? "儿童作品按课程级别展示，方便家长了解不同阶段的学习成果；成人体验作品单独展示。"
+            : "Children's work is grouped by course level, with adult workshop pieces shown separately."}
         </p>
       </div>
 
@@ -82,23 +88,17 @@ export default function GallerySection({ lang }: GallerySectionProps) {
                   {lang === "zh" ? level.ageZh : level.ageEn}
                 </span>
               </div>
-              {level.images.length > 0 ? (
-                <div className="grid gap-4 md:grid-cols-3">
-                  {level.images.map((image, index) => (
-                    <div key={image} className="image-zoom surface-card h-72">
-                      <img
-                        src={image}
-                        alt={`${level.level} ${lang === "zh" ? "儿童作品" : "student artwork"} ${index + 1}`}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="surface-card bg-[#f4eadc] p-8 text-sm text-[#665448]">
-                  {lang === "zh" ? "L5 作品图片待补充。当前文件夹中暂未提供 L5 作品。" : "L5 artwork images are not provided yet."}
-                </div>
-              )}
+              <div className="grid gap-4 md:grid-cols-3">
+                {level.images.map((image, index) => (
+                  <div key={image} className="image-zoom surface-card h-72">
+                    <img
+                      src={image}
+                      alt={`${level.level} ${lang === "zh" ? "儿童作品" : "student artwork"} ${index + 1}`}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
             </section>
           ))}
         </div>
@@ -108,11 +108,6 @@ export default function GallerySection({ lang }: GallerySectionProps) {
         title={lang === "zh" ? "成人体验作品" : "Adult Workshop Creations"}
         subtitle="Adult Workshop Creations"
         images={adultImages}
-      />
-      <GalleryGroup
-        title={lang === "zh" ? "我们的工作室" : "Our Studio"}
-        subtitle="Our Studio"
-        images={studioImages}
       />
     </section>
   );

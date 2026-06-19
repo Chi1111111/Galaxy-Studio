@@ -1,5 +1,5 @@
 import React from "react";
-import { Calendar, Instagram, Mail, MapPin, Phone, X } from "lucide-react";
+import { BookOpen, Calendar, Instagram, Mail, MapPin, MessageCircle, Phone, X } from "lucide-react";
 import Navbar from "./components/Navbar";
 import HomeSection from "./components/HomeSection";
 import KidsCourseSection from "./components/KidsCourseSection";
@@ -85,7 +85,10 @@ export default function App() {
       <footer className="border-t border-[#2f241d]/10 bg-[#f1e7d8] py-12">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
-            <h3 className="font-serif text-2xl font-bold">Galaxy Art Studio</h3>
+            <div data-lightbox-ignore className="flex items-center gap-3">
+              <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-12 w-28 object-contain object-left" />
+              <h3 className="font-serif text-2xl font-bold">Galaxy Art Studio</h3>
+            </div>
             <p className="mt-3 text-sm leading-7 text-[#6f5d4f]">
               {lang === "zh"
                 ? "奥克兰儿童美术与成人艺术体验空间，为孩子与成人打造温暖、有质感的创作时光。"
@@ -99,8 +102,9 @@ export default function App() {
           </div>
           <div className="space-y-3 text-sm text-[#5b4a3f]">
             <p className="flex gap-2"><Mail className="h-4 w-4" />{studioContact.email}</p>
-            <p>WeChat: {studioContact.wechat}</p>
-            <p className="flex gap-2"><Instagram className="h-4 w-4" />{studioContact.instagram} · Rednote: {studioContact.rednote}</p>
+            <p className="flex gap-2"><MessageCircle className="h-4 w-4" />WeChat: {studioContact.wechat}</p>
+            <p className="flex gap-2"><Instagram className="h-4 w-4" />{studioContact.instagram}</p>
+            <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: {studioContact.rednote}</p>
           </div>
         </div>
       </footer>

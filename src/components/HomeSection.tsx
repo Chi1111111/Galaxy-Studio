@@ -17,7 +17,7 @@ const adultWorks = [
   "/images/works/adult/1.png",
   "/images/works/adult/2.png",
 ];
-const studioWorks = ["/images/studio/1.png", "/images/studio/2.png", "/images/studio/4.png", "/images/studio/5.png"];
+const studioWorks = ["/images/studio/home-1.jpg", "/images/studio/home-2.jpg", "/images/studio/home-3.jpg", "/images/studio/home-4.jpg"];
 
 export default function HomeSection({ lang, setActiveTab }: HomeSectionProps) {
   const go = (tab: string) => {
@@ -59,7 +59,7 @@ export default function HomeSection({ lang, setActiveTab }: HomeSectionProps) {
   return (
     <div className="bg-[#f7f1e8]">
       <section className="relative min-h-[520px] overflow-hidden border-b-[10px] border-white md:min-h-[600px]">
-        <img src="/images/studio/1.png" alt="Galaxy Art Studio classroom" className="hero-image-motion absolute inset-0 h-full w-full object-cover" />
+        <img src="/images/brand/hero-paint.png" alt="Art materials on a bright studio table" className="hero-image-motion absolute inset-0 h-full w-full object-cover" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f7f1e8]/95 via-[#f7f1e8]/72 to-transparent" />
         <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-5 py-16 md:min-h-[600px] lg:px-8">
           <div className="max-w-xl">
@@ -100,7 +100,6 @@ export default function HomeSection({ lang, setActiveTab }: HomeSectionProps) {
               : "Explore imagination, color, materials, and self-expression."
           }
           image="/images/hero/kids-course.png"
-          accent="text-[#8ebcf0]"
           cta={lang === "zh" ? "了解更多" : "Learn More"}
           onClick={() => go("kids")}
         />
@@ -112,7 +111,6 @@ export default function HomeSection({ lang, setActiveTab }: HomeSectionProps) {
               : "Slow down, focus, and enjoy a relaxed guided studio experience."
           }
           image="/images/hero/adult-course.png"
-          accent="text-[#ebb7c5]"
           cta={lang === "zh" ? "了解更多" : "Learn More"}
           reverse
           onClick={() => go("adult")}
@@ -144,7 +142,6 @@ function CoursePanel({
   title,
   description,
   image,
-  accent,
   cta,
   reverse = false,
   onClick,
@@ -152,7 +149,6 @@ function CoursePanel({
   title: string;
   description: string;
   image: string;
-  accent: string;
   cta: string;
   reverse?: boolean;
   onClick: () => void;
@@ -160,7 +156,6 @@ function CoursePanel({
   return (
     <div className="surface-card grid min-h-[330px] border-r-[10px] border-white bg-[#f7f1e8] md:grid-cols-2">
       <div className={`anim-fade-up flex flex-col justify-center px-10 py-12 ${reverse ? "md:order-1" : ""}`}>
-        <div className={`mb-5 text-5xl font-light ${accent}`}>~</div>
         <h2 className="font-serif text-3xl font-medium text-[#1f1a16]">{title}</h2>
         <div className="draw-line mt-4 h-px w-8 bg-[#1f1a16]" />
         <p className="mt-5 max-w-xs text-sm leading-7 text-[#3f352e]">{description}</p>

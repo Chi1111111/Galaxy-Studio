@@ -1,11 +1,16 @@
-import { Bus, Car, Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { BookOpen, Bus, Car, Clock, Instagram, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 interface AboutSectionProps {
   lang: "zh" | "en";
 }
 
 export default function AboutSection({ lang }: AboutSectionProps) {
-  const studioImages = [1, 2, 3, 4, 5, 6].map((n) => `/images/studio/${n}.png`);
+  const studioImages = [
+    "/images/studio/home-1.jpg",
+    "/images/studio/home-2.jpg",
+    "/images/studio/home-3.jpg",
+    "/images/studio/home-4.jpg",
+  ];
   const details = [
     {
       icon: MapPin,
@@ -52,7 +57,7 @@ export default function AboutSection({ lang }: AboutSectionProps) {
           </div>
         </div>
         <div className="anim-fade-up anim-delay-1 grid grid-cols-2 gap-4">
-          {studioImages.slice(0, 4).map((src, idx) => (
+          {studioImages.map((src, idx) => (
             <div key={src} className={`image-zoom surface-card h-56 ${idx % 2 ? "mt-8" : ""}`}>
               <img src={src} alt={`Studio ${idx + 1}`} className="h-full w-full object-cover" />
             </div>
@@ -72,12 +77,12 @@ export default function AboutSection({ lang }: AboutSectionProps) {
         <div className="space-y-3 text-sm text-[#5b4a3f]">
           <p className="flex gap-2"><Phone className="h-4 w-4" />+64 27 236 9879</p>
           <p className="flex gap-2"><Mail className="h-4 w-4" />galaxyartstudio.nz@gmail.com</p>
-          <p>WeChat: Galaxyart8</p>
+          <p className="flex gap-2"><MessageCircle className="h-4 w-4" />WeChat: Galaxyart8</p>
         </div>
         <div className="space-y-3 text-sm text-[#5b4a3f]">
           <p className="flex gap-2"><Instagram className="h-4 w-4" />Instagram: galaxy_wl19</p>
-          <p>Rednote: Galaxyart8</p>
-          <p>{lang === "zh" ? "二维码图片可后续补充到页面。" : "QR code images can be added later."}</p>
+          <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: Galaxyart8</p>
+          <p className="text-xs leading-6 text-[#7b6c60]">{lang === "zh" ? "可通过以上账号咨询课程与预约。" : "Use the channels above for booking and course questions."}</p>
         </div>
       </div>
     </section>
