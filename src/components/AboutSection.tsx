@@ -5,6 +5,12 @@ interface AboutSectionProps {
 }
 
 export default function AboutSection({ lang }: AboutSectionProps) {
+  const contactQrs = [
+    { label: "WeChat", src: "/images/contact/wechat-qr.jpg" },
+    { label: "WhatsApp", src: "/images/contact/whatsapp-qr.jpg" },
+    { label: "Instagram", src: "/images/contact/instagram-qr.jpg" },
+    { label: "RedNote", src: "/images/contact/rednote-qr.jpg" },
+  ];
   const studioImages = [
     "/images/studio/home-1.jpg",
     "/images/studio/home-2.jpg",
@@ -65,7 +71,7 @@ export default function AboutSection({ lang }: AboutSectionProps) {
         </div>
       </div>
 
-      <div className="surface-card mt-16 grid gap-6 bg-[#f4eadc] p-8 md:grid-cols-3">
+      <div className="surface-card mt-16 grid gap-8 bg-[#f4eadc] p-8 lg:grid-cols-[1fr_1fr_1.4fr]">
         <div>
           <h2 className="font-serif text-2xl font-bold">{lang === "zh" ? "联系方式" : "Contact"}</h2>
           <p className="mt-3 text-sm leading-7 text-[#665448]">
@@ -83,6 +89,14 @@ export default function AboutSection({ lang }: AboutSectionProps) {
           <p className="flex gap-2"><Instagram className="h-4 w-4" />Instagram: galaxy_wl19</p>
           <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: Galaxyart8</p>
           <p className="text-xs leading-6 text-[#7b6c60]">{lang === "zh" ? "可通过以上账号咨询课程与预约。" : "Use the channels above for booking and course questions."}</p>
+        </div>
+        <div data-lightbox-ignore className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+          {contactQrs.map((qr) => (
+            <div key={qr.label} className="bg-[#fbf7ef] p-2 text-center">
+              <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto aspect-square w-full max-w-24 cursor-default object-contain" />
+              <p className="mt-2 text-xs font-semibold text-[#3f352e]">{qr.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

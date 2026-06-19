@@ -31,7 +31,7 @@ export default function Navbar({ activeTab, setActiveTab, lang, setLang }: Navba
       <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <button data-lightbox-ignore className="flex items-center gap-3 text-left transition-opacity hover:opacity-75" onClick={() => go("home")}>
           <span className="flex h-12 w-[132px] items-center overflow-hidden">
-            <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-full w-full object-contain object-left" />
+            <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-full w-full object-contain object-left mix-blend-multiply" />
           </span>
           <span className="hidden sm:block">
             <span className="block font-serif text-lg font-bold leading-none text-[#191715]">Galaxy Art Studio</span>

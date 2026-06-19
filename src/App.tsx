@@ -86,7 +86,7 @@ export default function App() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
           <div>
             <div data-lightbox-ignore className="flex items-center gap-3">
-              <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-12 w-28 object-contain object-left" />
+              <img src="/images/brand/galaxy-logo.jpg" alt="Galaxy Art Studio" className="h-12 w-28 object-contain object-left mix-blend-multiply" />
               <h3 className="font-serif text-2xl font-bold">Galaxy Art Studio</h3>
             </div>
             <p className="mt-3 text-sm leading-7 text-[#6f5d4f]">
@@ -105,6 +105,19 @@ export default function App() {
             <p className="flex gap-2"><MessageCircle className="h-4 w-4" />WeChat: {studioContact.wechat}</p>
             <p className="flex gap-2"><Instagram className="h-4 w-4" />{studioContact.instagram}</p>
             <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: {studioContact.rednote}</p>
+            <div data-lightbox-ignore className="grid grid-cols-4 gap-2 pt-2">
+              {[
+                ["WeChat", "/images/contact/wechat-qr.jpg"],
+                ["WhatsApp", "/images/contact/whatsapp-qr.jpg"],
+                ["Instagram", "/images/contact/instagram-qr.jpg"],
+                ["RedNote", "/images/contact/rednote-qr.jpg"],
+              ].map(([label, src]) => (
+                <div key={label} className="bg-[#fbf7ef] p-1 text-center">
+                  <img src={src} alt={`${label} QR code`} className="aspect-square w-full cursor-default object-contain" />
+                  <span className="mt-1 block text-[10px] leading-none">{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </footer>
