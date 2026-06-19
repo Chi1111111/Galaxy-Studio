@@ -11,6 +11,13 @@ export default function AboutSection({ lang }: AboutSectionProps) {
     { label: "Instagram", src: "/images/contact/instagram-qr.png" },
     { label: "RedNote", src: "/images/contact/rednote-qr.png" },
   ];
+  const contactMethods = [
+    { icon: Phone, label: "Phone", value: "+64 27 236 9879" },
+    { icon: Mail, label: "Email", value: "galaxyartstudio.nz@gmail.com" },
+    { icon: MessageCircle, label: "WeChat", value: "Galaxyart8" },
+    { icon: Instagram, label: "Instagram", value: "galaxy_wl19" },
+    { icon: BookOpen, label: "Rednote", value: "Galaxyart8" },
+  ];
   const studioImages = [
     "/images/studio/home-1.jpg",
     "/images/studio/home-2.jpg",
@@ -71,31 +78,43 @@ export default function AboutSection({ lang }: AboutSectionProps) {
         </div>
       </div>
 
-      <div className="surface-card mt-16 grid gap-8 bg-[#f4eadc] p-8 lg:grid-cols-[1fr_1fr_1.4fr]">
+      <div className="surface-card mt-16 grid gap-10 bg-[#f4eadc] p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
         <div>
-          <h2 className="font-serif text-2xl font-bold">{lang === "zh" ? "联系方式" : "Contact"}</h2>
-          <p className="mt-3 text-sm leading-7 text-[#665448]">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a36b4f]">Contact Us</p>
+          <h2 className="mt-3 font-serif text-3xl font-bold">{lang === "zh" ? "联系方式" : "Contact"}</h2>
+          <p className="mt-4 max-w-md text-sm leading-7 text-[#665448]">
             {lang === "zh"
-              ? "如需预约试听、咨询体验项目或团体活动，请通过电话、微信或邮箱联系我们。"
-              : "For trial classes, experience bookings, or group events, contact us by phone, WeChat, or email."}
+              ? "如需预约试听、咨询体验项目或团体活动，可以直接电话联系，也可以扫码添加常用社交平台。"
+              : "For trial classes, experience bookings, or group events, call us directly or scan a preferred social channel."}
           </p>
+          <div className="mt-7 grid gap-3 text-sm text-[#5b4a3f]">
+            {contactMethods.map((method) => (
+              <div key={method.label} className="grid grid-cols-[24px_88px_1fr] items-center gap-2 border-b border-[#2f241d]/10 pb-3 last:border-b-0">
+                <method.icon className="h-4 w-4 text-[#a36b4f]" />
+                <span className="font-semibold text-[#3f352e]">{method.label}</span>
+                <span>{method.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="space-y-3 text-sm text-[#5b4a3f]">
-          <p className="flex gap-2"><Phone className="h-4 w-4" />+64 27 236 9879</p>
-          <p className="flex gap-2"><Mail className="h-4 w-4" />galaxyartstudio.nz@gmail.com</p>
-          <p className="flex gap-2"><MessageCircle className="h-4 w-4" />WeChat: Galaxyart8</p>
-        </div>
-        <div className="space-y-3 text-sm text-[#5b4a3f]">
-          <p className="flex gap-2"><Instagram className="h-4 w-4" />Instagram: galaxy_wl19</p>
-          <p className="flex gap-2"><BookOpen className="h-4 w-4" />Rednote: Galaxyart8</p>
-          <p className="text-xs leading-6 text-[#7b6c60]">{lang === "zh" ? "可通过以上账号咨询课程与预约。" : "Use the channels above for booking and course questions."}</p>
-        </div>
-        <div data-lightbox-ignore className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-          {contactQrs.map((qr) => (
-            <div key={qr.label} className="flex items-center justify-center bg-[#f4eadc] p-2">
-              <img src={qr.src} alt={`${qr.label} QR code`} className="w-full max-w-28 cursor-default object-contain mix-blend-multiply" />
+
+        <div data-lightbox-ignore>
+          <div className="flex items-end justify-between gap-4 border-b border-[#2f241d]/10 pb-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#a36b4f]">Scan to Connect</p>
+              <h3 className="mt-2 font-serif text-2xl font-bold">{lang === "zh" ? "扫码咨询" : "QR Codes"}</h3>
             </div>
-          ))}
+            <p className="max-w-44 text-right text-xs leading-5 text-[#7b6c60]">
+              {lang === "zh" ? "选择常用平台，扫码即可联系。" : "Choose your preferred platform."}
+            </p>
+          </div>
+          <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {contactQrs.map((qr) => (
+              <div key={qr.label} className="border border-[#2f241d]/10 bg-[#efe3d2] p-3 text-center">
+                <img src={qr.src} alt={`${qr.label} QR code`} className="mx-auto w-full max-w-28 cursor-default object-contain mix-blend-multiply" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
