@@ -122,7 +122,7 @@ export default function App() {
                 ["Instagram", "/images/contact/instagram-qr.png"],
                 ["RedNote", "/images/contact/rednote-qr.png"],
               ].map(([label, src]) => (
-                <div key={label} className="border border-[#2f241d]/10 bg-white p-1.5 shadow-sm">
+                <div key={label} className="border border-[#d6c4ad] bg-[#fbf7ef] p-1.5 shadow-sm">
                   <img src={src} alt={`${label} QR code`} className="w-full cursor-default object-contain" />
                 </div>
               ))}
