@@ -1,0 +1,8 @@
+node_modules/
+.git/
+.git-store/
+.agents/
+dist/
+coverage/
+data/*.json
+*.log
