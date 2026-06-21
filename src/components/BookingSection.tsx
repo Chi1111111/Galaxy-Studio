@@ -115,6 +115,7 @@ export default function BookingSection({
       if (!response.ok || !result.success) throw new Error(result.error || "Booking failed");
 
       const savedBooking = result.booking as Booking;
+      void notifyStudio(savedBooking);
       setSubmitted(true);
       setFullName("");
       setPhone("");
@@ -142,6 +143,7 @@ export default function BookingSection({
       const existing: Booking[] = JSON.parse(localStorage.getItem("galaxy_bookings") || "[]");
       localStorage.setItem("galaxy_bookings", JSON.stringify([fallbackBooking, ...existing]));
       localStorage.setItem("galaxy_last_booking", JSON.stringify(fallbackBooking));
+      void notifyStudio(fallbackBooking);
       setSubmitted(true);
       setFullName("");
       setPhone("");
@@ -335,6 +337,19 @@ export default function BookingSection({
       </div>
     </section>
   );
+}
+
+async function notifyStudio(booking: Booking) {
+  try {
+    const response = await fetch("/api/booking-notification", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(booking),
+    });
+    if (!response.ok) throw new Error("Booking notification failed");
+  } catch (error) {
+    console.error("Unable to notify Galaxy Art Studio by email:", error);
+  }
 }
 
 function getDurationHours(duration: string) {

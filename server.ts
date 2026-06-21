@@ -9,6 +9,7 @@ import fs from "fs/promises";
 import { GoogleGenAI, Type } from "@google/genai";
 import { createServer as createViteServer } from "vite";
 import dotenv from "dotenv";
+import { sendBookingNotification } from "./src/server/bookingEmail";
 
 dotenv.config();
 
@@ -22,6 +23,16 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const BOOKINGS_FILE = path.join(DATA_DIR, "bookings.json");
 
 app.use(express.json());
+
+app.post("/api/booking-notification", async (req, res) => {
+  try {
+    const data = await sendBookingNotification(req.body);
+    return res.json({ success: true, id: data?.id });
+  } catch (error: any) {
+    console.error("Booking notification email failed:", error);
+    return res.status(500).json({ success: false, error: "Unable to send booking notification" });
+  }
+});
 
 type BookingStatus = "Pending" | "Confirmed" | "Cancelled";
 
